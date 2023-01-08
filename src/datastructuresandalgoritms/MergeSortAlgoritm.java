@@ -1,45 +1,63 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
-*/
-
+ */
 package datastructuresandalgoritms;
-
-import java.lang.reflect.Array;
 
 /**
  *
  * @author erayb
  */
-
 public class MergeSortAlgoritm {
 
-    public void MergeSort(int[] array, int bas, int son, int orta) {
-        int[] kopyadizi = new int[array.length];
-        int i, j, k;
-        i = bas;
-        j = orta;
-        for (int l = 0; l < array.length; l++) {
-            kopyadizi[l] = array[l];
-        }
-        printArray(array);
-    }
-    public void printArray(int[] array)
-    {
-        int s=array.length;
-        System.out.println("yeni dizi\n");
-        for (int i = 0; i < s; i++) {
-            System.out.print(array[i]+"-");
-        }
-    }
-    public void Bol(int bas, int son, int[] dizi) {
+    public static void printArray(int[] array) {
 
-        if (son > bas) {
-            int orta = (bas + son) / 2;
-            Bol(bas, orta, dizi);
-            Bol(orta + 1, son, dizi);
-            MergeSort(dizi, bas, son, orta);
-            
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + "-");
         }
     }
+
+    public static void mergeSort(int[] array, int size) {
+
+        if (size > 1) {
+            int mid = size / 2;
+            int LeftSize = mid;
+            int RigthSize = size - LeftSize;
+
+            int[] LeftArray = new int[LeftSize];
+            int[] RigthArray = new int[RigthSize];
+
+            for (int i = 0; i < mid; i++) {
+                LeftArray[i] = array[i];
+            }
+            for (int i = 0; i < RigthSize; i++) {
+                RigthArray[i] = array[mid + i];
+            }
+
+            mergeSort(LeftArray, LeftSize);
+            mergeSort(RigthArray, RigthSize);
+
+            merge(array, LeftArray, RigthArray, RigthSize, LeftSize);
+        }
+    }
+
+    public static void merge(int[] array, int[] LeftArray, int[] RightArray, int RigthSize, int leftSize) {
+        int i = 0, j = 0, k = 0;
+        while (i < leftSize && j < RigthSize) {
+
+            if (LeftArray[i] <= RightArray[j]) {
+                array[k++] = LeftArray[i++];
+            } else {
+                array[k++] = RightArray[j++];
+            }
+        }
+        while (i < leftSize) {
+            array[k++] = LeftArray[i++];
+        }
+        while (j < RigthSize) {
+            array[k++] = RightArray[j++];
+        }
+
+    }
+
 }

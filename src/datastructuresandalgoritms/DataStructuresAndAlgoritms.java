@@ -17,9 +17,11 @@ public class DataStructuresAndAlgoritms {
             
         MergeSortAlgoritm mergeSortAlgoritm=new MergeSortAlgoritm();
         
-        int[] array={1,3,6,9,7,24,12};
-        
-        mergeSortAlgoritm.Bol(0, array.length, array);
+        int[] array={1,9,4,31,58,32,98,43};
+
+        mergeSortAlgoritm.mergeSort(array,array.length);
+        System.out.println("Sorted array with MergeSort:");
+        mergeSortAlgoritm.printArray(array);
 
     }
     
