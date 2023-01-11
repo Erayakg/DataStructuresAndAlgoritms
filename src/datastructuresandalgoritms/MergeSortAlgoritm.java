@@ -16,7 +16,6 @@ public class MergeSortAlgoritm {
             System.out.print(array[i] + "-");
         }
     }
-
     public static void mergeSort(int[] array, int size) {
 
         if (size > 1) {
