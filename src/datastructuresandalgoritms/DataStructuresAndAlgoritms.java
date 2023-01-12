@@ -17,6 +17,7 @@ public class DataStructuresAndAlgoritms {
             
         MergeSortAlgoritm mergeSortAlgoritm=new MergeSortAlgoritm();
         quickSort qSort =new quickSort();
+        HashFunctions hashFunctions=new HashFunctions();
         int[] array={1,9,4,31,58,32,98,43};
         int[] array2={3,231,2111,56,2,0,54,69};
         mergeSortAlgoritm.mergeSort(array,array.length);
@@ -26,6 +27,11 @@ public class DataStructuresAndAlgoritms {
         System.out.println("Sorted array with QuickSort");
         qSort.quickSort(array2, 0, array.length-1);
         qSort.printArray(array2);
+        hashFunctions.HashTable(array, 5);
+        System.out.println("Hashing !!");
+        
+        
+        
     }
     
 }
